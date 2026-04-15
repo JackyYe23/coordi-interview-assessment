@@ -33,11 +33,17 @@ Server will run on `http://localhost:8080`
 ## Endpoints
 
 GET: /contacts => Retrieves all contacts
-GET: /contacts?company={name} (where name is a company name) => Retrieves only contacts with company {name}
+
+GET: /contacts?company={name} => Retrieves only contacts with that company name
+
 GET: /contacts/:id => Retrieves contact by ID
+
 POST: /contacts => Creates a new contact
+
 PUT: /contacts/:id => Updates a contact with given ID
+
 DELETE: /contacts/:id => Deletes a contact with given ID
+
 ---
 
 ## Contact Schema
