@@ -5,25 +5,23 @@ const getAllContacts = (req,res) =>{
         const {company} = req.query;
         if (company) {
             const filteredContacts = contacts.filter(c => c.company.toLowerCase() === company.toLowerCase());
-            if (filteredContacts.length === 0){
-                res.status(404).json({error:'No contacts with that company name is found'});
-            }
+            if (filteredContacts.length === 0) return res.status(404).json({error:'No contacts with that company name is found'});
             res.json(filteredContacts);
         } else{
             res.json(contacts);
         }
     } catch (error) {
-        res.status(500).json({error:"Internal server error"});
+        res.status(500).json({ error: "Internal server error" });
     }
 }
 
 const getContactById = (req,res) => {
     try {
         const contact = contacts.find(c => c.id === req.params.id);
-        if(!contact) return res.status(404).json({error:"Contact nout found"});
+        if(!contact) return res.status(404).json({error:"Contact not found"});
         res.json(contact)
     } catch (error) {
-        res.status(500).json({error:"Internal server error"});
+        res.status(500).json({ error: "Internal server error" });
     }
 }
 
@@ -43,29 +41,29 @@ const createContact = (req,res) => {
         contacts.push(newContact)
         res.status(201).json(newContact);
     } catch (error) {
-        res.status(500).json({error:"Internal server error"});
+        res.status(500).json({ error:"Internal server error"});
     }
 }
 
 const updateContact = (req,res) => {
     try {
         const index = contacts.findIndex(c => c.id === req.params.id);
-        if (index === -1) return res.status(404).json({error: "Contact not found"});
+        if (index === -1) return res.status(404).json({ error: "Contact not found" });
         contacts[index] = {...contacts[index], ...req.body,updatedAt: new Date()}
         res.json(contacts[index])
     } catch (error) {
-        res.status(500).json({error: "Internal server error"});
+        res.status(500).json({ error: "Internal server error" });
     }
 }
 
 const deleteContact =  (req,res) => {
     try {
         const index = contacts.findIndex(c => c.id === req.params.id);
-        if (index === -1) return res.status(404).json({error: "Contact not found"});
+        if (index === -1) return res.status(404).json({ error: "Contact not found" });
         contacts.splice(index,1)
-        res.status(200).json({message:"Message deleted succesfully"});
+        res.status(200).json({ message: "Message deleted succesfully"} );
     } catch (error) {
-        res.status(500).json({error: "Internal server error"});
+        res.status(500).json({ error: "Internal server error"});
     }
 }
 
