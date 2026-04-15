@@ -1,4 +1,4 @@
-import express, { Router } from "express"
+import express from "express"
 import { getAllContacts,getContactById,createContact,updateContact,deleteContact } from "../controllers/controller.js"
 import { validateContact, validateUpdate } from "../middleware/validate.js"
 
