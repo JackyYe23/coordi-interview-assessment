@@ -13,6 +13,9 @@ git clone https://github.com/JackyYe23/coordi-interview-assessment.git
 
 2. Navigate into the project folder
 ```
+
+cd coordi-interview-assessment
+
 cd backend
 ```
 
