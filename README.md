@@ -32,14 +32,12 @@ Server will run on `http://localhost:8080`
 
 ## Endpoints
 
-| Method | Endpoint | Description ||
-| GET | /contacts | List all contacts |
-| GET | /contacts?company={name} | Filter contacts by company |
-| GET | /contacts/:id | Retrieve a single contact by ID |
-| POST | /contacts | Create a new contact |
-| PUT | /contacts/:id | Update an existing contact |
-| DELETE | /contacts/:id | Delete a contact |
-
+GET: /contacts => Retrieves all contacts
+GET: /contacts?company={name} (where name is a company name) => Retrieves only contacts with company {name}
+GET: /contacts/:id => Retrieves contact by ID
+POST: /contacts => Creates a new contact
+PUT: /contacts/:id => Updates a contact with given ID
+DELETE: /contacts/:id => Deletes a contact with given ID
 ---
 
 ## Contact Schema
