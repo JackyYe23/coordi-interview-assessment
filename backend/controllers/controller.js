@@ -61,7 +61,7 @@ const deleteContact =  (req,res) => {
         const index = contacts.findIndex(c => c.id === req.params.id);
         if (index === -1) return res.status(404).json({ error: "Contact not found" });
         contacts.splice(index,1)
-        res.status(200).json({ message: "Message deleted succesfully"} );
+        res.status(200).json({ message: "Contact deleted successfully"} );
     } catch (error) {
         res.status(500).json({ error: "Internal server error"});
     }
